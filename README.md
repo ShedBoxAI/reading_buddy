@@ -40,7 +40,7 @@ ReadingBuddy is a Chrome extension that lets you highlight any text on a webpage
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/yourusername/reading-buddy.git
+   git clone https://github.com/ShedBoxAI/reading_buddy.git
    cd reading-buddy
    ```
 
