@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome to ReadingBuddy</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="onboarding.css">
+</head>
+<body>
+  <div class="container">
+    <div class="card">
+      <!-- Step 1: Welcome -->
+      <div class="step" id="step-welcome">
+        <div class="logo">
+          <img src="../assets/icons/icon128.png" alt="ReadingBuddy">
+        </div>
+        <h1>Welcome to ReadingBuddy</h1>
+        <p class="subtitle">Your AI reading companion. Highlight any text on the web to get instant explanations.</p>
+        <button class="btn-primary" id="btn-get-started">Get Started</button>
+      </div>
+
+      <!-- Step 2: Choose Provider -->
+      <div class="step hidden" id="step-provider">
+        <h2>Choose your AI provider</h2>
+        <p class="subtitle">Select how you want to power your reading assistant</p>
+
+        <div class="provider-cards">
+          <div class="provider-card" data-provider="ollama">
+            <div class="provider-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+            </div>
+            <h3>Ollama (Local)</h3>
+            <p>Run AI models locally on your machine. Free, private, no API key needed.</p>
+            <span class="badge">Recommended</span>
+          </div>
+
+          <div class="provider-card" data-provider="openai">
+            <div class="provider-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729z"/></svg>
+            </div>
+            <h3>OpenAI</h3>
+            <p>Use GPT-4o, GPT-4, or GPT-3.5. Requires an API key.</p>
+          </div>
+
+          <div class="provider-card" data-provider="anthropic">
+            <div class="provider-icon">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 19h20L12 2zm0 4l7 11H5l7-11z"/></svg>
+            </div>
+            <h3>Anthropic</h3>
+            <p>Use Claude 3.5 Sonnet, Opus, or Haiku. Requires an API key.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Step 3: Configure Ollama -->
+      <div class="step hidden" id="step-ollama">
+        <button class="btn-back" id="btn-back-ollama">&larr; Back</button>
+        <h2>Configure Ollama</h2>
+        <p class="subtitle">Connect to your local Ollama instance</p>
+
+        <div class="form-group">
+          <label for="ollama-host">Ollama Host URL</label>
+          <input type="text" id="ollama-host" value="http://localhost:11434" placeholder="http://localhost:11434">
+        </div>
+
+        <div class="form-group">
+          <label for="ollama-model">Select Model</label>
+          <div class="select-wrapper">
+            <select id="ollama-model">
+              <option value="">Loading models...</option>
+            </select>
+            <button class="btn-icon" id="refresh-models" title="Refresh models">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg>
+            </button>
+          </div>
+        </div>
+
+        <div class="status-box" id="ollama-status"></div>
+
+        <button class="btn-primary" id="btn-test-ollama">Test Connection</button>
+      </div>
+
+      <!-- Step 3: Configure OpenAI -->
+      <div class="step hidden" id="step-openai">
+        <button class="btn-back" id="btn-back-openai">&larr; Back</button>
+        <h2>Configure OpenAI</h2>
+        <p class="subtitle">Enter your OpenAI API credentials</p>
+
+        <div class="form-group">
+          <label for="openai-key">API Key</label>
+          <input type="password" id="openai-key" placeholder="sk-...">
+          <span class="hint">Get your key from <a href="https://platform.openai.com/api-keys" target="_blank">platform.openai.com</a></span>
+        </div>
+
+        <div class="form-group">
+          <label for="openai-model">Model</label>
+          <select id="openai-model">
+            <option value="gpt-4o-mini">GPT-4o Mini (Fast & Cheap)</option>
+            <option value="gpt-4o">GPT-4o (Best)</option>
+            <option value="gpt-4-turbo">GPT-4 Turbo</option>
+            <option value="gpt-3.5-turbo">GPT-3.5 Turbo</option>
+          </select>
+        </div>
+
+        <div class="status-box" id="openai-status"></div>
+
+        <button class="btn-primary" id="btn-test-openai">Test Connection</button>
+      </div>
+
+      <!-- Step 3: Configure Anthropic -->
+      <div class="step hidden" id="step-anthropic">
+        <button class="btn-back" id="btn-back-anthropic">&larr; Back</button>
+        <h2>Configure Anthropic</h2>
+        <p class="subtitle">Enter your Anthropic API credentials</p>
+
+        <div class="form-group">
+          <label for="anthropic-key">API Key</label>
+          <input type="password" id="anthropic-key" placeholder="sk-ant-...">
+          <span class="hint">Get your key from <a href="https://console.anthropic.com/settings/keys" target="_blank">console.anthropic.com</a></span>
+        </div>
+
+        <div class="form-group">
+          <label for="anthropic-model">Model</label>
+          <select id="anthropic-model">
+            <option value="claude-sonnet-4-20250514">Claude Sonnet 4 (Recommended)</option>
+            <option value="claude-3-5-sonnet-20241022">Claude 3.5 Sonnet</option>
+            <option value="claude-3-5-haiku-20241022">Claude 3.5 Haiku (Fast)</option>
+            <option value="claude-3-opus-20240229">Claude 3 Opus (Most Capable)</option>
+          </select>
+        </div>
+
+        <div class="status-box" id="anthropic-status"></div>
+
+        <button class="btn-primary" id="btn-test-anthropic">Test Connection</button>
+      </div>
+
+      <!-- Step 4: Success -->
+      <div class="step hidden" id="step-success">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+        </div>
+        <h2>You're all set!</h2>
+        <p class="subtitle">ReadingBuddy is ready to help you understand any text on the web.</p>
+
+        <div class="how-to-use">
+          <h3>How to use:</h3>
+          <ol>
+            <li>Highlight any text on a webpage</li>
+            <li>Click the purple bubble that appears</li>
+            <li>Get instant AI explanations</li>
+            <li>Ask follow-up questions</li>
+          </ol>
+        </div>
+
+        <button class="btn-primary" id="btn-finish">Start Reading</button>
+      </div>
+    </div>
+  </div>
+  <script src="onboarding.js"></script>
+</body>
+</html>

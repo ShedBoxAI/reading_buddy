@@ -1,0 +1,31 @@
+{
+  "name": "reading-buddy",
+  "version": "1.0.0",
+  "description": "Your AI reading companion - highlight any text for instant explanations",
+  "scripts": {
+    "build": "webpack --mode production",
+    "dev": "webpack --mode development --watch",
+    "clean": "rm -rf dist/*"
+  },
+  "devDependencies": {
+    "@anthropic-ai/sdk": "^0.30.0",
+    "@types/chrome": "^0.0.287",
+    "copy-webpack-plugin": "^12.0.2",
+    "css-loader": "^7.1.2",
+    "mini-css-extract-plugin": "^2.9.2",
+    "ts-loader": "^9.5.1",
+    "typescript": "^5.7.2",
+    "webpack": "^5.97.1",
+    "webpack-cli": "^6.0.1"
+  },
+  "keywords": [
+    "chrome-extension",
+    "ai",
+    "reading",
+    "ollama",
+    "openai",
+    "anthropic"
+  ],
+  "author": "",
+  "license": "MIT"
+}

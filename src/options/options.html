@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ReadingBuddy Settings</title>
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>ReadingBuddy</h1>
+      <p class="subtitle">Your AI reading companion</p>
+    </header>
+
+    <main>
+      <section class="provider-section">
+        <h2>AI Provider</h2>
+        <div class="provider-options">
+          <label class="provider-option">
+            <input type="radio" name="provider" value="ollama" checked>
+            <div class="provider-card">
+              <span class="provider-name">Ollama</span>
+              <span class="provider-desc">Local LLM (Free, Private)</span>
+            </div>
+          </label>
+          <label class="provider-option">
+            <input type="radio" name="provider" value="openai">
+            <div class="provider-card">
+              <span class="provider-name">OpenAI</span>
+              <span class="provider-desc">GPT-4, GPT-3.5</span>
+            </div>
+          </label>
+          <label class="provider-option">
+            <input type="radio" name="provider" value="anthropic">
+            <div class="provider-card">
+              <span class="provider-name">Anthropic</span>
+              <span class="provider-desc">Claude 3</span>
+            </div>
+          </label>
+        </div>
+      </section>
+
+      <!-- Ollama Settings -->
+      <section id="ollama-settings" class="settings-section">
+        <h3>Ollama Settings</h3>
+        <div class="form-group">
+          <label for="ollama-host">Host URL</label>
+          <input type="text" id="ollama-host" value="http://localhost:11434" placeholder="http://localhost:11434">
+        </div>
+        <div class="form-group">
+          <label for="ollama-model">Model</label>
+          <div class="input-with-button">
+            <select id="ollama-model">
+              <option value="llama3.2">llama3.2</option>
+            </select>
+            <button id="refresh-models" class="btn-secondary">Refresh</button>
+          </div>
+        </div>
+        <button id="test-ollama" class="btn-test">Test Connection</button>
+        <div id="ollama-status" class="status-message"></div>
+      </section>
+
+      <!-- OpenAI Settings -->
+      <section id="openai-settings" class="settings-section hidden">
+        <h3>OpenAI Settings</h3>
+        <div class="form-group">
+          <label for="openai-key">API Key</label>
+          <input type="password" id="openai-key" placeholder="sk-...">
+        </div>
+        <div class="form-group">
+          <label for="openai-model">Model</label>
+          <select id="openai-model">
+            <option value="gpt-4o-mini">gpt-4o-mini (Fast, Cheap)</option>
+            <option value="gpt-4o">gpt-4o (Best Quality)</option>
+            <option value="gpt-4-turbo">gpt-4-turbo</option>
+            <option value="gpt-3.5-turbo">gpt-3.5-turbo</option>
+          </select>
+        </div>
+        <button id="test-openai" class="btn-test">Test Connection</button>
+        <div id="openai-status" class="status-message"></div>
+      </section>
+
+      <!-- Anthropic Settings -->
+      <section id="anthropic-settings" class="settings-section hidden">
+        <h3>Anthropic Settings</h3>
+        <div class="form-group">
+          <label for="anthropic-key">API Key</label>
+          <input type="password" id="anthropic-key" placeholder="sk-ant-...">
+        </div>
+        <div class="form-group">
+          <label for="anthropic-model">Model</label>
+          <select id="anthropic-model">
+            <option value="claude-3-haiku-20240307">Claude 3 Haiku (Fast)</option>
+            <option value="claude-3-sonnet-20240229">Claude 3 Sonnet</option>
+            <option value="claude-3-opus-20240229">Claude 3 Opus (Best)</option>
+          </select>
+        </div>
+        <button id="test-anthropic" class="btn-test">Test Connection</button>
+        <div id="anthropic-status" class="status-message"></div>
+      </section>
+
+      <div class="actions">
+        <button id="save" class="btn-primary">Save Settings</button>
+        <span id="save-status" class="save-status"></span>
+      </div>
+    </main>
+
+    <footer>
+      <p>Highlight any text on a webpage and click the icon to get AI explanations.</p>
+    </footer>
+  </div>
+
+  <script src="options.js"></script>
+</body>
+</html>
