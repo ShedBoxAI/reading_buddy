@@ -41,7 +41,7 @@ ReadingBuddy is a Chrome extension that lets you highlight any text on a webpage
 1. Clone the repository:
    ```bash
    git clone https://github.com/ShedBoxAI/reading_buddy.git
-   cd reading-buddy
+   cd reading_buddy
    ```
 
 2. Install dependencies:
@@ -284,6 +284,8 @@ ReadingBuddy is designed with privacy in mind:
 - **OpenAI/Anthropic**: Selected text and page context are sent to the respective API. See their privacy policies.
 - **No analytics**: We don't collect any usage data.
 - **No accounts**: No sign-up required.
+
+See our full [Privacy Policy](PRIVACY.md).
 
 ---
 
