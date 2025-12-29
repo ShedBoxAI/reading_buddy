@@ -300,7 +300,3 @@ Contributions are welcome! Please feel free to submit a Pull Request.
 MIT License — see [LICENSE](LICENSE) for details.
 
 ---
-
-<p align="center">
-  Made with Claude Code
-</p>
